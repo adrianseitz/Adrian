@@ -1,0 +1,96 @@
+<!doctype html><html lang="de"><head><meta charset="utf-8"><title>Reel 4 – 5 Streitfälle</title>
+<link rel="stylesheet" href="common.css">
+<style>
+.item{display:flex;align-items:center;gap:26px;padding:20px 30px;box-sizing:border-box}
+.item .n{font-weight:900;font-size:34px;color:#45453F;width:56px;font-variant-numeric:tabular-nums}
+.item img{width:86px;height:86px;flex:none}
+.item .t{font-weight:900;font-size:50px;letter-spacing:-.04em;line-height:1}
+.item .s{font-size:31px;color:#45453F;margin-top:6px;letter-spacing:-.01em}
+.opt{display:flex;align-items:center;gap:24px;padding:26px 34px;font-weight:800;font-size:46px;letter-spacing:-.03em;box-sizing:border-box}
+.opt .n{font-size:30px;color:#45453F;font-weight:900}
+</style></head><body><div id="stage">
+
+<div class="scene" id="s1">
+  <div class="abs photo a" id="s1-p" style="left:80px;top:280px;width:920px;height:760px"><img src="assets/vermieter.jpg" alt="" style="object-position:30% 30%"></div>
+  <div class="abs a hand" id="s1-tag" style="left:780px;top:975px;font-size:42px;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,.45)">Symbolbild</div>
+  <h1 class="abs h1" id="s1-h" style="left:80px;top:1100px;width:940px;font-size:116px">Schlüssel&shy;übergabe</h1>
+  <div class="abs a serif" id="s1-s" style="left:80px;top:1345px;font-size:104px;line-height:1"><span class="hl">– und dann Streit?</span></div>
+</div>
+
+<div class="scene" id="s2">
+  <div class="abs a" id="s2-k" style="left:80px;top:290px"><div class="pill" id="pill2">Typisch für Vermieter</div></div>
+  <h2 class="abs h1" id="s2-h" style="left:80px;top:380px;width:940px;font-size:90px">5 Streitfälle, die <span class="serif hl" style="font-weight:400;letter-spacing:-.01em">teuer</span> werden können</h2>
+  <div class="abs card item a" id="i1" style="left:80px;top:600px;width:920px"><span class="n">01</span><img src="assets/document.webp" alt=""><div><div class="t">Mietstreitigkeiten</div><div class="s">Pflichten aus dem Mietvertrag</div></div></div>
+  <div class="abs card item a" id="i2" style="left:80px;top:762px;width:920px"><span class="n">02</span><img src="assets/envelope.webp" alt=""><div><div class="t">Kündigung</div><div class="s">durchsetzen oder verteidigen</div></div></div>
+  <div class="abs card item a" id="i3" style="left:80px;top:924px;width:920px"><span class="n">03</span><img src="assets/key.webp" alt=""><div><div class="t">Räumungsklage</div><div class="s">Umfang laut Tarif</div></div></div>
+  <div class="abs card item a" id="i4" style="left:80px;top:1086px;width:920px"><span class="n">04</span><img src="assets/moneybag.webp" alt=""><div><div class="t">Betriebskosten</div><div class="s">Abrechnung, Nachzahlung, Umlage</div></div></div>
+  <div class="abs card item a" id="i5" style="left:80px;top:1248px;width:920px"><span class="n">05</span><img src="assets/house.webp" alt=""><div><div class="t">Schäden &amp; Mieterhöhung</div><div class="s">Auseinandersetzungen mit Mietern</div></div></div>
+  <p class="abs fine a" id="s2-f" style="left:80px;top:1420px;width:900px;margin:0">Was im Einzelfall versichert ist, regelt dein Tarif.</p>
+</div>
+
+<div class="scene" id="s3">
+  <h2 class="abs h1" id="s3-h" style="left:80px;top:300px;width:940px;font-size:90px">Welche Immobilie möchtest du <span class="serif hl" style="font-weight:400;letter-spacing:-.01em">absichern?</span></h2>
+  <div class="abs card opt a" id="o1" style="left:80px;top:560px;width:920px"><span class="n">01</span>Eigentumswohnung</div>
+  <div class="abs card opt a" id="o2" style="left:80px;top:720px;width:920px"><span class="n">02</span>Einfamilienhaus</div>
+  <div class="abs card opt a" id="o3" style="left:80px;top:880px;width:920px"><span class="n">03</span>Mehrfamilienhaus<span id="o3c" style="margin-left:auto;display:none"></span></div>
+  <div class="abs card opt a" id="o4" style="left:80px;top:1040px;width:920px"><span class="n">04</span>Mehrere Immobilien</div>
+  <div class="abs" id="tap" style="left:0;top:0;width:110px;height:110px;z-index:5">
+    <div id="ring" style="position:absolute;left:5px;top:5px;width:100px;height:100px;border-radius:50%;border:6px solid #0B0B0A;box-sizing:border-box"></div>
+    <div style="position:absolute;left:25px;top:25px;width:60px;height:60px;border-radius:50%;background:rgba(11,11,10,.85);border:5px solid #fff;box-sizing:border-box"></div>
+  </div>
+  <div class="abs a hand" id="s3-n" style="left:90px;top:1240px;font-size:62px;line-height:1.05;width:900px">Jede Wohneinheit zählt – sag mir, wie viele es sind. <br><span style="font-size:52px">– Adrian</span></div>
+</div>
+
+</div>
+<script src="common.js"></script>
+<script>
+document.querySelector('#pill2').innerHTML = HOUSE(44) + 'Typisch für Vermieter';
+document.querySelector('#o3c').innerHTML = CHECK(64);
+const W1 = 3.4, W2 = 11.6, W3 = 16.6, END = W3;
+boot(22.4, [W1, W2, W3], END, () => {
+  splitWords('#s1-h'); splitWords('#s2-h'); splitWords('#s3-h');
+}, t => {
+  if (showScene('#s1', t, 0, W1)) {
+    enter('#s1-p', t, 0, { d: .6, y: 140, s: .85, ease: E.back });
+    $('#s1-p img').style.transform = `scale(${1.05 + t * .04}) translateY(${t * 6}px)`;
+    enter('#s1-tag', t, .5, { d: .4, y: 10 });
+    words('#s1-h', t, .4, .2);
+    enter('#s1-s', t, 1.4, { d: .55, y: 60, s: .9, ease: E.back });
+  }
+  if (showScene('#s2', t, W1, W2)) {
+    const a = W1 + .1;
+    enter('#s2-k', t, a, { d: .4, x: -60, y: 0 });
+    words('#s2-h', t, a + .1, .1);
+    ['#i1', '#i2', '#i3', '#i4', '#i5'].forEach((id, i) => {
+      const s = a + 1.3 + i * 1.05;
+      enter(id, t, s, { d: .5, x: i % 2 ? 160 : -160, y: 0, ease: E.out5 });
+      const im = $(id + ' img');
+      const k = P(t, s + .1, .5);
+      im.style.transform = `scale(${lerp(.3, 1, E.backBig(k))}) rotate(${(1 - E.out3(k)) * -40}deg)`;
+    });
+    enter('#s2-f', t, a + 2.0, { d: .4, y: 10 });
+  }
+  if (showScene('#s3', t, W2, W3)) {
+    const a = W2 + .1;
+    words('#s3-h', t, a, .1);
+    ['#o1', '#o2', '#o3', '#o4'].forEach((id, i) => enter(id, t, a + .7 + i * .2, { d: .45, y: 60, ease: E.out5 }));
+    // Finger-Tipp auf "Mehrfamilienhaus"
+    const tapT = a + 2.4;
+    const km = E.inOut(P(t, a + 1.6, .8));
+    const tap = $('#tap');
+    tap.style.left = lerp(860, 760, km) + 'px';
+    tap.style.top = lerp(1300, 900, km) + 'px';
+    tap.style.opacity = clamp(P(t, a + 1.5, .2)) * (1 - P(t, tapT + 1.0, .3));
+    const press = t > tapT && t < tapT + .25 ? .85 : 1;
+    tap.style.transform = `scale(${press})`;
+    const rk = P(t, tapT, .6);
+    $('#ring').style.transform = `scale(${1 + rk * 1.2})`;
+    $('#ring').style.opacity = t > tapT ? 1 - rk : 0;
+    const sel = t > tapT + .05;
+    $('#o3').style.background = sel ? '#FFD60A' : '#fff';
+    $('#o3c').style.display = sel ? 'inline-flex' : 'none';
+    enter('#s3-n', t, tapT + .7, { d: .45, y: 20, r: -4, ease: E.back });
+    $('#s3-n').style.rotate = '-2deg';
+  }
+});
+</script></body></html>

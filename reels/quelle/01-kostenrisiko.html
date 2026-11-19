@@ -1,0 +1,93 @@
+<!doctype html><html lang="de"><head><meta charset="utf-8"><title>Reel 1 – Kostenrisiko</title>
+<link rel="stylesheet" href="common.css">
+<style>
+.row{display:flex;align-items:center;justify-content:space-between;padding:26px 0;border-bottom:4px dashed rgba(11,11,10,.18);font-size:46px;font-weight:700;letter-spacing:-.03em}
+.row .v{font-weight:900;font-variant-numeric:tabular-nums}
+.row .l{display:flex;align-items:center;gap:20px}
+.row img{width:72px;height:72px}
+</style></head><body><div id="stage">
+
+<div class="scene" id="s1">
+  <div class="abs photo a" id="s1-p" style="left:80px;top:290px;width:920px;height:600px"><img src="assets/stress.jpg" alt=""></div>
+  <div class="abs a hand" id="s1-tag" style="left:740px;top:820px;font-size:44px;color:#fff;transform-origin:left;text-shadow:0 2px 8px rgba(0,0,0,.5)">Symbolbild</div>
+  <h1 class="abs h1" id="s1-h" style="left:80px;top:960px;width:940px;font-size:132px">Streit mit dem Mieter?</h1>
+  <div class="abs a serif" id="s1-s" style="left:80px;top:1250px;width:920px;font-size:96px;line-height:1.02"><span class="hl">Wer zahlt Anwalt &amp; Gericht?</span></div>
+</div>
+
+<div class="scene" id="s2">
+  <div class="abs a" id="s2-k" style="left:80px;top:300px"><div class="pill">Kostenrisiko¹</div></div>
+  <h2 class="abs h1" id="s2-h" style="left:80px;top:390px;width:940px;font-size:92px">Prozess verloren? Dann zahlst du:</h2>
+  <div class="abs card a" id="s2-c" style="left:80px;top:610px;width:920px;padding:14px 46px 40px">
+    <div class="row a" id="r1"><span class="l"><img src="assets/scale.webp" alt="">Eigene Anwaltskosten</span><span class="v" id="v1">0 €</span></div>
+    <div class="row a" id="r2"><span class="l"><img src="assets/document.webp" alt="">Anwalt Gegenseite</span><span class="v" id="v2">0 €</span></div>
+    <div class="row a" id="r3"><span class="l"><img src="assets/moneybag.webp" alt="">Gerichtskosten</span><span class="v" id="v3">0 €</span></div>
+    <div class="a" id="r4" style="margin-top:30px;display:flex;align-items:center;justify-content:space-between;background:#FFD60A;border:5px solid #0B0B0A;border-radius:26px;padding:22px 30px">
+      <span style="font-weight:900;font-size:54px;letter-spacing:-.04em">Gesamt</span>
+      <span id="v4" style="font-weight:900;font-size:100px;letter-spacing:-.05em;font-variant-numeric:tabular-nums">0 €</span>
+    </div>
+  </div>
+  <div class="abs a hand" id="s2-n" style="left:540px;top:1290px;font-size:62px;transform:rotate(-4deg);line-height:1">… nur 1. Instanz!</div>
+  <p class="abs fine a" id="s2-f" style="left:80px;top:1390px;width:900px;margin:0">¹ Beispiel: Streitwert 5.000 €. Vereinfachte Rechnung, 1. Instanz mit Urteil, nach RVG und GKG (Stand 06/2025), inkl. 19 % USt. auf Anwaltskosten; ohne Zeugen, Gutachten und weitere Instanzen. Tatsächliche Kosten können abweichen.</p>
+</div>
+
+<div class="scene" id="s3">
+  <div class="abs a" id="s3-k" style="left:80px;top:300px"><div class="pill">${HOUSE}Vermieterrechtsschutz</div></div>
+  <h2 class="abs h1" id="s3-h" style="left:80px;top:400px;width:940px;font-size:108px">übernimmt Kosten für <span class="hl serif" style="font-weight:400;letter-spacing:-.01em">Anwalt &amp; Gericht.</span></h2>
+  <div class="abs a hand" id="s3-t" style="left:560px;top:700px;font-size:70px;transform-origin:left">– je nach Tarif</div>
+  <div class="abs chip a" id="ch1" style="left:90px;top:860px">Mietstreit</div>
+  <div class="abs chip a" id="ch2" style="left:470px;top:900px">Kündigung</div>
+  <div class="abs chip a" id="ch3" style="left:140px;top:1030px">Räumungsklage</div>
+  <div class="abs chip a" id="ch4" style="left:560px;top:1080px">Betriebskosten</div>
+  <div class="abs chip a" id="ch5" style="left:210px;top:1210px">Mieterhöhung</div>
+  <p class="abs fine a" id="s3-f" style="left:80px;top:1360px;width:900px;margin:0">Was im Einzelfall versichert ist, regelt dein Tarif – z. B. der Umfang bei Räumungsverfahren. Die ausgefallene Miete selbst ersetzt der Rechtsschutz nicht.</p>
+</div>
+
+</div>
+<script src="common.js"></script>
+<script>
+document.querySelector('#s3-k .pill').innerHTML = HOUSE(44) + 'Vermieterrechtsschutz';
+const W1 = 3.6, W2 = 10.9, W3 = 15.6, END = W3;
+boot(21.5, [W1, W2, W3], END, () => {
+  splitWords('#s1-h'); splitWords('#s2-h');
+}, t => {
+  if (showScene('#s1', t, 0, W1)) {
+    enter('#s1-p', t, 0, { d: .6, y: 140, s: .85, ease: E.back });
+    $('#s1-p img').style.transform = `scale(${1.04 + t * .035})`;
+    enter('#s1-tag', t, .5, { d: .4, y: 10, r: -10 });
+    $('#s1-tag').style.rotate = '-3deg';
+    words('#s1-h', t, .35, .16);
+    enter('#s1-s', t, 1.55, { d: .55, y: 60, s: .9, ease: E.back });
+  }
+  if (showScene('#s2', t, W1, W2)) {
+    const a = W1 + .1;
+    enter('#s2-k', t, a, { d: .4, x: -60, y: 0 });
+    words('#s2-h', t, a + .15, .1);
+    enter('#s2-c', t, a + .7, { d: .55, y: 120, ease: E.out5 });
+    [['#r1', '#v1', 1078], ['#r2', '#v2', 1078], ['#r3', '#v3', 512]].forEach(([r, v, n], i) => {
+      const s = a + 1.2 + i * .75;
+      enter(r, t, s, { d: .4, x: -80, y: 0 });
+      count(v, t, s + .1, .6, n);
+    });
+    const g = a + 3.6;
+    enter('#r4', t, g, { d: .5, y: 40, s: .8, ease: E.backBig });
+    count('#v4', t, g + .15, 1.1, 2668);
+    if (t > g + 1.25) { const k = P(t, g + 1.25, .35); $('#r4').style.transform = `scale(${1 + Math.sin(k * Math.PI) * .06})`; }
+    enter('#s2-n', t, g + 1.5, { d: .4, y: 20, r: -14, ease: E.back });
+    enter('#s2-f', t, a + 1.0, { d: .5, y: 20 });
+  }
+  if (showScene('#s3', t, W2, W3)) {
+    const a = W2 + .1;
+    enter('#s3-k', t, a, { d: .45, x: -60, y: 0 });
+    enter('#s3-h', t, a + .2, { d: .55, y: 70, ease: E.back });
+    enter('#s3-t', t, a + .9, { d: .4, y: 10, r: -12, ease: E.back });
+    $('#s3-t').style.rotate = '-4deg';
+    const rots = [-4, 3, -2, 4, -3];
+    ['#ch1', '#ch2', '#ch3', '#ch4', '#ch5'].forEach((c, i) => {
+      enter(c, t, a + 1.3 + i * .32, { d: .45, y: 80, s: .5, ease: E.backBig });
+      $(c).style.rotate = rots[i] + 'deg';
+      drift(c, t, 6, 2 + i * .3, i);
+    });
+    enter('#s3-f', t, a + 1.6, { d: .5, y: 20 });
+  }
+});
+</script></body></html>
