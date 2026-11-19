@@ -91,7 +91,7 @@ boot(22.6, [W1, W2, W3], END, () => {
       const [x0, x1] = s[i];
       const vis = t >= x0 && t < x1;
       const el = $(id);
-      el.style.visibility = vis ? 'visible' : 'hidden';
+      el.style.visibility = vis ? 'inherit' : 'hidden';
       if (vis) enter(el, t, x0, { d: .4, y: 30, s: .9, ease: E.back });
     });
     $('#wz').setAttribute('opacity', t > a + 4.1 && t < a + 5.6 ? 1 : .55);
